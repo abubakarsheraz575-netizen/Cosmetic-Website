@@ -1,0 +1,23 @@
+@extends('admin.layouts.ecommerce')
+@section('title', $faq->exists ? 'Edit FAQ' : 'Create FAQ')
+@section('content')
+<style>
+    .faq-form-page{max-width:1000px;margin:auto;color:#173640}.faq-form-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.faq-form-head h1{margin:0;font-size:25px}.faq-form-head a{color:#24737a;font-size:11px;font-weight:800;text-decoration:none}.faq-form-card{padding:22px;border:1px solid #e4ebf0;border-radius:15px;background:#fff;box-shadow:0 10px 32px rgba(25,54,71,.055)}.faq-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.faq-form-field{display:grid;gap:6px;min-width:0}.faq-form-field.full{grid-column:1/-1}.faq-form-field label{font-size:11px;font-weight:800}.faq-form-field input,.faq-form-field select,.faq-form-field textarea{width:100%;min-height:42px;padding:10px 12px;border:1px solid #dfe7ec;border-radius:9px;background:#fff;color:#173640;font:inherit;font-size:12px}.faq-form-field textarea{min-height:165px;resize:vertical;line-height:1.7}.faq-form-help{color:#758590;font-size:10px;line-height:1.5}.faq-form-error{color:#b53242;font-size:10px}.faq-form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.faq-form-actions button{min-height:42px;padding:0 15px;border:0;border-radius:9px;background:#2167c9;color:#fff;font-size:11px;font-weight:800;cursor:pointer}.faq-form-actions a{display:grid;place-items:center;padding:0 14px;border:1px solid #e4ebf0;border-radius:9px;color:#4a6170;font-size:11px;text-decoration:none}
+    @media(max-width:620px){.faq-form-grid{grid-template-columns:1fr}.faq-form-field.full{grid-column:auto}.faq-form-card{padding:15px}.faq-form-actions>*{flex:1;text-align:center}}
+</style>
+<main class="faq-form-page"><header class="faq-form-head"><h1>{{ $faq->exists ? 'Edit question' : 'Create a question' }}</h1><a href="{{ route('admin.faqs.index') }}">← Back to FAQs</a></header>
+    @if($errors->any())<div class="alert alert-danger" role="alert">Please review the highlighted fields and try again.</div>@endif
+    <form class="faq-form-card" method="POST" action="{{ $faq->exists ? route('admin.faqs.update',$faq) : route('admin.faqs.store') }}">@csrf @if($faq->exists)@method('PATCH')@endif
+        <div class="faq-form-grid">
+            <div class="faq-form-field"><label for="faqCategory">Category *</label><select id="faqCategory" name="faq_category_id" required><option value="">Choose a category</option>@foreach($categories as $category)<option value="{{ $category->id }}" @selected((string)old('faq_category_id',$faq->faq_category_id)===(string)$category->id)>{{ $category->name }}{{ $category->is_active?'':' (inactive)' }}</option>@endforeach</select>@error('faq_category_id')<span class="faq-form-error">{{ $message }}</span>@enderror</div>
+            <div class="faq-form-field"><label for="faqStatus">Status</label><select id="faqStatus" name="status"><option value="published" @selected(old('status',$faq->status ?: 'published')==='published')>Published</option><option value="draft" @selected(old('status',$faq->status)==='draft')>Draft</option></select></div>
+            <div class="faq-form-field full"><label for="faqQuestion">Question *</label><input id="faqQuestion" name="question" maxlength="255" required value="{{ old('question',$faq->question) }}">@error('question')<span class="faq-form-error">{{ $message }}</span>@enderror</div>
+            <div class="faq-form-field full"><label for="faqAnswer">Answer *</label><textarea id="faqAnswer" name="answer" required maxlength="10000">{{ old('answer',$faq->answer) }}</textarea>@error('answer')<span class="faq-form-error">{{ $message }}</span>@enderror</div>
+            <div class="faq-form-field"><label for="faqSource">Optional HTTPS reference</label><input id="faqSource" type="url" name="source_url" value="{{ old('source_url',$faq->source_url) }}" placeholder="https://www.fda.gov/cosmetics">@error('source_url')<span class="faq-form-error">{{ $message }}</span>@enderror</div>
+            <div class="faq-form-field"><label for="faqSort">Display order</label><input id="faqSort" type="number" name="sort_order" min="0" max="100000" required value="{{ old('sort_order',$faq->sort_order ?? 0) }}"></div>
+            <span class="faq-form-help faq-form-field full">Published answers appear on the storefront. Keep product advice aligned with each product's label and avoid claims that a cosmetic treats a medical condition.</span>
+        </div>
+        <footer class="faq-form-actions"><a href="{{ route('admin.faqs.index') }}">Cancel</a><button type="submit"><i class="ri-save-line"></i> Save FAQ</button></footer>
+    </form>
+</main>
+@endsection

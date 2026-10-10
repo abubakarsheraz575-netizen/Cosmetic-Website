@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'choices' => [
+        ['value' => '🧴', 'class' => 'ri-flask-line', 'label' => 'Shampoo'],
+        ['value' => '🌸', 'class' => 'ri-flower-line', 'label' => 'Perfume'],
+        ['value' => '🧼', 'class' => 'ri-water-flash-line', 'label' => 'Face Wash'],
+        ['value' => '🥥', 'class' => 'ri-seedling-line', 'label' => 'Coconut Oil'],
+        ['value' => '💅', 'class' => 'ri-brush-line', 'label' => 'Nail Polish'],
+        ['value' => '🪷', 'class' => 'ri-plant-line', 'label' => 'Cream'],
+        ['value' => '💄', 'class' => 'ri-magic-line', 'label' => 'Lipstick'],
+        ['value' => '✨', 'class' => 'ri-sparkling-2-line', 'label' => 'Serum'],
+        ['value' => '🌿', 'class' => 'ri-leaf-line', 'label' => 'Herbal Care'],
+        ['value' => '🧪', 'class' => 'ri-test-tube-line', 'label' => 'Treatment'],
+        ['value' => '🫧', 'class' => 'ri-bubble-chart-line', 'label' => 'Cleanser'],
+        ['value' => '☀️', 'class' => 'ri-sun-line', 'label' => 'Sun Care'],
+        ['value' => '🌙', 'class' => 'ri-moon-line', 'label' => 'Night Care'],
+        ['value' => '💧', 'class' => 'ri-drop-line', 'label' => 'Moisturizer'],
+        ['value' => '🧖', 'class' => 'ri-user-smile-line', 'label' => 'Face Mask'],
+        ['value' => '👁️', 'class' => 'ri-eye-line', 'label' => 'Eye Care'],
+        ['value' => '🪥', 'class' => 'ri-brush-line', 'label' => 'Beauty Tools'],
+        ['value' => '🛁', 'class' => 'ri-hand-sanitizer-line', 'label' => 'Bath & Body'],
+        ['value' => '🍊', 'class' => 'ri-cup-line', 'label' => 'Natural Care'],
+        ['value' => '🎀', 'class' => 'ri-gift-line', 'label' => 'Gift Sets'],
+        ['value' => '🩹', 'class' => 'ri-first-aid-kit-line', 'label' => 'Skin Repair'],
+        ['value' => '🪒', 'class' => 'ri-scissors-line', 'label' => 'Grooming'],
+        ['value' => '🌱', 'class' => 'ri-seedling-line', 'label' => 'Organic Care'],
+    ],
+    'fallback' => 'ri-flask-line',
+];

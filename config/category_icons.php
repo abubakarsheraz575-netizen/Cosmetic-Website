@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'fallback' => 'ri-price-tag-3-line',
+    'choices' => [
+        ['value' => 'ri-flask-line', 'label' => 'Perfume'],
+        ['value' => 'ri-flask-fill', 'label' => 'Skincare'],
+        ['value' => 'ri-flower-line', 'label' => 'Floral'],
+        ['value' => 'ri-drop-line', 'label' => 'Moisturizer'],
+        ['value' => 'ri-brush-line', 'label' => 'Makeup'],
+        ['value' => 'ri-magic-line', 'label' => 'Beauty'],
+        ['value' => 'ri-sparkling-2-line', 'label' => 'Serum'],
+        ['value' => 'ri-leaf-line', 'label' => 'Natural care'],
+        ['value' => 'ri-sun-line', 'label' => 'Sun care'],
+        ['value' => 'ri-moon-line', 'label' => 'Night care'],
+        ['value' => 'ri-eye-line', 'label' => 'Eye care'],
+        ['value' => 'ri-hand-sanitizer-line', 'label' => 'Bath & body'],
+        ['value' => 'ri-scissors-line', 'label' => 'Grooming'],
+        ['value' => 'ri-gift-line', 'label' => 'Gift sets'],
+        ['value' => 'ri-heart-pulse-line', 'label' => 'Skin health'],
+        ['value' => 'ri-user-smile-line', 'label' => 'Face care'],
+        ['value' => 'ri-water-flash-line', 'label' => 'Cleanser'],
+        ['value' => 'ri-seedling-line', 'label' => 'Organic'],
+        ['value' => 'ri-plant-line', 'label' => 'Botanical'],
+        ['value' => 'ri-test-tube-line', 'label' => 'Treatment'],
+        ['value' => 'ri-bubble-chart-line', 'label' => 'Clean beauty'],
+        ['value' => 'ri-cup-line', 'label' => 'Fruit extracts'],
+        ['value' => 'ri-first-aid-kit-line', 'label' => 'Skin repair'],
+        ['value' => 'ri-price-tag-3-line', 'label' => 'General'],
+    ],
+];
